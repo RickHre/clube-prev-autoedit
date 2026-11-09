@@ -1,0 +1,5 @@
+raw/*.mp4
+final/*.mp4
+work/*.mp4
+__pycache__/
+*.mp3
