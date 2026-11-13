@@ -1,0 +1,2 @@
+python script1_minutagem.py raw/video.mp4
+node gravar_playwright_9x16.js --bloco bloco2 --formato 9:16

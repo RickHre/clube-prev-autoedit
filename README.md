@@ -1,17 +1,47 @@
+# Clube Prev - Autoedit (LIMPO)
 
-# Clube Prev - AutoEdit
-## Como usar no VS Code Web (github.dev)
-1. Abra github.dev e abra este repositorio
-2. Edite style/STYLE.json (efeitos, cores, tamanho seta, tipo grafico)
-3. Coloque video em raw/bloco1.mp4
-4. Rode no terminal do Codespaces: python script1_minutagem.py
-5. Rode: python script_gerador_blueprint.py
-6. Abra blueprint.html no navegador, edite timeline, exporte JSON
-7. No PC local: python script2_render.py --modo preview_480p
-8. Aprovou? Rode --modo final_720p e jogue no CapCut para exportar 1080p
+Só 2 coisas. Nada mais.
 
-## Fluxo leve
-VS Code Web = edita blueprint e JSON (0% CPU local)
-PC local = so renderiza final (2 min por bloco)
-## Gatilhos disponiveis
-push_direita, push_esquerda, zoom_in, zoom_out, grafico_linha, grafico_barras, grafico_pizza, seta_cima, seta_baixo, contador, pulso_numero, selo_desconto, wipe, blur_fundo, legenda_digitando
+## Estrutura
+```
+clube-prev-autoedit/
+  script1_minutagem.py          -> extrai minutagem
+  gravar_playwright_9x16.js     -> grava 9:16, CONGELADO, nao mexer
+  package.json
+  blueprint/blueprint_padrao.html  -> COLE O SEU AQUI
+  raw/      -> coloque video.mp4 / bloco2.mp4 aqui
+  work/     -> sai bloco2.json / transcricao.json
+  final/    -> sai bloco2_9x16.mp4
+```
+
+## Fluxo (2 comandos)
+1. Minutagem:
+```
+python script1_minutagem.py raw/bloco2.mp4
+# ou no bash: python3 script1_minutagem.py raw/bloco2.mp4
+```
+
+2. Gravar:
+```
+node gravar_playwright_9x16.js --bloco bloco2 --formato 9:16
+```
+
+## O que foi removido
+- script2_render.py, script2_render_v4_backup.py
+- scripts/automacao.js (substituido por gravar_playwright_9x16.js)
+- blueprint_config.json, comandos_playwright.txt
+- node_modules/, __pycache__/ (reinstala com npm install)
+
+## Instalar (1x)
+```
+npm install
+npx playwright install chromium
+pip install openai-whisper moviepy
+# ffmpeg precisa estar no PATH
+```
+
+## Regras
+- Nao copiar codigo do chat com o mouse: a palavra whisper vira chip e quebra o Python.
+  Se der SyntaxError com [ , apague a linha e digite na mao.
+- CAPTION_ADVANCE = 0.22 ja calibrado. Nao mexer sem testar bloco2 inteiro.
+- Automacao CONGELADA.

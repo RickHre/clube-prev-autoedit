@@ -1,7 +1,8 @@
+node_modules/
+__pycache__/
 raw/*.mp4
 final/*.mp4
 work/*.mp4
-work/transcricao.json
 work/temp_audio.mp3
-__pycache__/
 *.mp3
+work/*.json

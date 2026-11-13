@@ -1,0 +1,3 @@
+Cole aqui o seu blueprint_padrao.html original.
+Ele nao foi incluido no zip porque nao estava na estrutura enviada.
+Caminho esperado: blueprint/blueprint_padrao.html
